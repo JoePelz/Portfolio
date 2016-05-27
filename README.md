@@ -1,4 +1,3 @@
-# Portfolio
-My porfolio website. 
+# My portfolio website. 
 
 Please check it out live at www.joepolygon.com
