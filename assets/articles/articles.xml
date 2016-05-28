@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE blog SYSTEM "blog.dtd">
+
+<blog>
+  <section>
+    <title>Programming</title>
+    <article>
+      <title>Amoeba Platformer</title>
+      <path>amoebaPlatformer</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>Maze Generator</title>
+      <path>mazeGenerator</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>PCM Encoder</title>
+      <path>PCMEncoder</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>Synthesizer Keyboard</title>
+      <path>synthesizerKeyboard</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>Circuitry</title>
+      <path>circuitry</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>Coding in Different Languages</title>
+      <path>linguistics</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>Generating Words and Language</title>
+      <path>generatingLanguage</path>
+      <image>link.png</image>
+    </article>
+    <article>
+      <title>Color Flip Puzzle</title>
+      <path>colorFlip</path>
+      <image>link.jpg</image>
+    </article>
+  </section>
+  <section>
+    <title>School</title>
+    <article>
+      <title>Hamming Code</title>
+      <path>hammingCode</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>IP Addresses</title>
+      <path>ipAddress</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>Venn Diagram Generator</title>
+      <path>vennDiagram</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>Binary Tree Builder</title>
+      <path>binaryTree</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>Edge Trigger, Flip Flop</title>
+      <path>edgeTrigger</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>Paint Program</title>
+      <path>paint</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>Making 2048</title>
+      <path>2048</path>
+      <image>link.jpg</image>
+    </article>
+  </section>
+  <section>
+    <title>Visual Effects</title>
+    <article>
+      <title>Demo Reel 2011</title>
+      <path>reel11</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>ICE Nodes</title>
+      <path>iceNodes</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>Nuke Expressions</title>
+      <path>nukeExpressions</path>
+      <image>link.jpg</image>
+    </article>
+  </section>
+  <section>
+    <title>Inspiration</title>
+    <article>
+      <title>This is Colossal</title>
+      <path>http://www.thisiscolossal.com</path>
+      <image>/assets/images/articles/thisIsColossal.jpg</image>
+    </article>
+    <article>
+      <title>The Demoscene</title>
+      <path>demoscene</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>.kkrieger</title>
+      <path>http://www.pouet.net/prod.php?which=12036</path>
+      <image>/assets/images/articles/kkreiger.jpg</image>
+    </article>
+    <article>
+      <title>acko.net</title>
+      <path>http://acko.net</path>
+      <image>/assets/images/articles/ackonet.jpg</image>
+    </article>
+    <article>
+      <title>Algorithm Visualization</title>
+      <path>http://bost.ocks.org/mike/algorithms/</path>
+      <image>/assets/images/articles/bostocksVisualizations.jpg</image>
+    </article>
+  </section>
+</blog>
