@@ -22,8 +22,14 @@ class MY_Controller extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->model("articles");
 		$this->data = array();
 		$this->data['pagetitle'] = 'Portfolio';	// our default title
+		$this->data['sections'] = $this->articles->getAllSections();
+		$styles = array();
+		$styles[] = ["stylesheet" => "/assets/css/common.css"];
+		$this->data['styles'] = $styles;
+		$this->data['scripts'] = array();
 	}
 
 	/**

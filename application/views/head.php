@@ -1,6 +1,8 @@
 <head>
   <title>{pagetitle}</title>
-  <link rel="stylesheet" href="/assets/css/common.css">
-  <link rel="stylesheet" href="/assets/css/index.css">
+  {styles}
+  <link rel="stylesheet" href="{stylesheet}">{/styles}
+  {scripts}
+  <script src="{javascript}" charset="utf-8"></script>{/scripts}
   <meta charset="utf-8">
 </head>

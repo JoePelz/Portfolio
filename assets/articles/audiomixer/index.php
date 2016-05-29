@@ -1,22 +1,9 @@
-<DOCTYPE html>
-<html lang="en-CA">
-<head>
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="../../common.css">
-  <link rel="stylesheet" href="../../article.css">
-  <meta charset="utf-8">
-</head>
-<body>
-  <header>
-      <?php include '../../articleHeader.php'; ?>
-  </header>
-
   <div id="SectionContainer">
     <h1>AudioFile</h1>
     <p>Can you hear me now?</p>
   </div>
   <div class="content">
-    <div class="center"><img src="waveForm.jpg"></div>
+    <div class="center"><img src="/assets/articles/audiomixer/waveForm.jpg"></div>
     <p>This was a term-long school assignment, running during fall of 2015.  It was an opportunity to explore a wide range of concepts, many of which were completely new to me.  By the end of this project I had my first experiences in:</p>
     <ul>
       <li>Low-level Win32 multimedia functions WaveIn* and WaveOut*</li>
@@ -24,7 +11,7 @@
       <li>Integrating Win32 dlls with C# code. That was a doozy to figure out!</li>
       <li>The Windows clipboard</li>
     </ul>
-    <div class="center"><img src="mixer.jpg"></div>
+    <div class="center"><img src="/assets/articles/audiomixer/mixer.jpg"></div>
     <p>These were just the programming tasks though. On a more fundamental level, I learned:</p>
     <dl>
       <dt>Discrete Fourier Transform</dt>
@@ -42,8 +29,3 @@
     </dl>
     <p>The complete project is hosted on <a href="https://github.com/JoePelz/DSPProject">on GitHub</a>, with a small description of how to use it.</p>
   <div class="endFloat">&nbsp;</div></div>
-  <footer>
-    <?php include '../../footer.php'; ?>
-  </footer>
-</body>
-</html>

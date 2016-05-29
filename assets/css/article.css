@@ -24,6 +24,15 @@ img {
   max-width: 80%;
 }
 
+figure img {
+  margin-bottom: 0.3em;
+}
+
+figure figcaption {
+  margin-bottom: 1em;
+  font-style: italic;
+}
+
 h2 {
   margin: 2em auto 1em auto;
   min-width: 12.5em;

@@ -1,22 +1,9 @@
-<DOCTYPE html>
-<html lang="en-CA">
-<head>
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="../../common.css">
-  <link rel="stylesheet" href="../../article.css">
-  <meta charset="utf-8">
-</head>
-<body>
-  <header>
-      <?php include '../../articleHeader.php'; ?>
-  </header>
-
   <div id="SectionContainer">
     <h1>The Demoscene</h1>
     <p>Interestingly, an anagram for "Encodes Theme"</p>
   </div>
   <div class="content">
-    <div class="center"><img src="./link.jpg"></div>
+    <div class="center"><img src="/assets/articles/demoscene/link.jpg"></div>
     <p>Wikipedia's article on the <a href="https://en.wikipedia.org/wiki/Demoscene">demoscene</a> provides the following description:</p>
     <blockquote>The demoscene is an international computer art subculture that specializes in producing demos: small, self-contained computer programs that produce audio-visual presentations. The main goal of a demo is to show off programming, artistic, and musical skills.</blockquote>
     <p>It's bad style to cite wikipedia, but no additional citation is available for that part. </p>
@@ -40,8 +27,3 @@
       <p>Still - Ferner [<a href="http://www.pouet.net/prod.php?which=34517">pouet.net</a>]</p>
     </div>
   <div class="endFloat">&nbsp;</div></div>
-  <footer>
-      <?php include '../../footer.php'; ?>
-  </footer>
-</body>
-</html>

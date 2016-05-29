@@ -4,8 +4,10 @@
 
 <!ELEMENT section (title, article+)>
 
-<!ELEMENT article (path, image, title)>
+<!ELEMENT article (path, image, title, style*, script*)>
 
 <!ELEMENT path (#PCDATA)>
 <!ELEMENT image (#PCDATA)>
 <!ELEMENT title (#PCDATA)>
+<!ELEMENT style (#PCDATA)>
+<!ELEMENT script (#PCDATA)>

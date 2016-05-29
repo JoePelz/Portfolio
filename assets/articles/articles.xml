@@ -8,6 +8,7 @@
       <title>Amoeba Platformer</title>
       <path>amoebaPlatformer</path>
       <image>link.jpg</image>
+      <style>/assets/articles/amoebaPlatformer/amoeba.css</style>
     </article>
     <article>
       <title>Maze Generator</title>
@@ -33,16 +34,23 @@
       <title>Coding in Different Languages</title>
       <path>linguistics</path>
       <image>link.jpg</image>
+      <script>/assets/js/collapse.js</script>
+      <script>/assets/articles/linguistics/extra.js</script>
     </article>
     <article>
       <title>Generating Words and Language</title>
       <path>generatingLanguage</path>
       <image>link.png</image>
+      <script>/assets/articles/generatingLanguage/letters.js</script>
+      <script>/assets/articles/generatingLanguage/fragments.js</script>
+      <script>/assets/articles/generatingLanguage/intrigue.js</script>
+      <script>/assets/articles/generatingLanguage/latin.js</script>
     </article>
     <article>
       <title>Color Flip Puzzle</title>
       <path>colorFlip</path>
       <image>link.jpg</image>
+      <script>/assets/articles/colorFlip/elm.js</script>
     </article>
   </section>
   <section>
@@ -51,16 +59,21 @@
       <title>Hamming Code</title>
       <path>hammingCode</path>
       <image>link.jpg</image>
+      <script>/assets/articles/hammingCode/elm.js</script>
+      <script>/assets/js/collapse.js</script>
     </article>
     <article>
       <title>IP Addresses</title>
       <path>ipAddress</path>
       <image>link.jpg</image>
+      <script>/assets/articles/ipAddress/elm.js</script>
     </article>
     <article>
       <title>Venn Diagram Generator</title>
       <path>vennDiagram</path>
       <image>link.jpg</image>
+      <style>/assets/articles/vennDiagram/table.css</style>
+      <script>/assets/articles/vennDiagram/elm.js</script>
     </article>
     <article>
       <title>Binary Tree Builder</title>

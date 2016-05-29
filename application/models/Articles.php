@@ -27,13 +27,13 @@ class Articles extends CI_Model
 
           if (strpos($newArticle['articlePath'], 'http') !== 0)
           {
-            $newArticle['articlePath'] = "/assets/articles/" . $newArticle['articlePath'];
+            $newArticle['articlePath'] = "/articles/" . $newArticle['articlePath'];
           }
 
           if (!$this->startsWith($newArticle['articleImage'], '/') && strpos($newArticle['articleImage'], 'http') !== 0)
           {
             //neither starts with http nor a /
-            $newArticle['articleImage'] = $newArticle['articlePath'] . '/' . $newArticle['articleImage'];
+            $newArticle['articleImage'] = '/assets' . $newArticle['articlePath'] . '/' . $newArticle['articleImage'];
           }
 
           $articles[] = $newArticle;
@@ -47,5 +47,41 @@ class Articles extends CI_Model
     function startsWith($haystack, $needle) {
       // search backwards starting from haystack length characters from the end
       return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
+    }
+
+    function getStyles($articlePath) {
+      $styles = array();
+      foreach($this->xml->section as $section)
+      {
+        foreach($section->article as $article)
+        {
+          if (strcmp($articlePath, (string)$article->path) == 0) {
+            foreach($article->style as $style)
+            {
+              $styles[] = (string)$style;
+            }
+            return $styles;
+          }
+        }
+      }
+      return $styles;
+    }
+
+    function getScripts($articlePath) {
+      $scripts = array();
+      foreach($this->xml->section as $section)
+      {
+        foreach($section->article as $article)
+        {
+          if (strcmp($articlePath, (string)$article->path) == 0) {
+            foreach($article->script as $script)
+            {
+              $scripts[] = (string)$script;
+            }
+            return $scripts;
+          }
+        }
+      }
+      return $scripts;
     }
 }

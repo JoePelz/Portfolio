@@ -3,7 +3,7 @@ var fragsum;
 
 function retrieveData(target) {
   var xmlhttp = new XMLHttpRequest();
-  var url = "fragments.json";
+  var url = "/assets/articles/generatingLanguage/fragments.json";
 
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

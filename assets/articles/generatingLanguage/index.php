@@ -1,28 +1,11 @@
-<DOCTYPE html>
-<html lang="en-CA">
-<head>
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="../../common.css">
-  <link rel="stylesheet" href="../../article.css">
-  <meta charset="utf-8">
-  <script src="letters.js" charset="utf-8"></script>
-  <script src="fragments.js" charset="utf-8"></script>
-  <script src="intrigue.js" charset="utf-8"></script>
-  <script src="latin.js" charset="utf-8"></script>
-</head>
-<body>
-  <header>
-      <?php include '../../articleHeader.php'; ?>
-  </header>
-
   <div id="SectionContainer">
     <h1>Generating Words and Language</h1>
     <p>Lorem ipsum dolor sit amet.</p>
   </div>
   <div class="content">
-    <div class="center"><img src="link.png"></div>
+    <div class="center"><img src="/assets/articles/generatingLanguage/link.png"></div>
     <p>Generating random words and sentences has been an interest of mine for a while now.  I’ve taken a few different approaches would like to share what I’ve come up with.</p>
-    <p>One of the first, and simplest methods is just to generate a list of what letters are allowed to be followed by what other letters.   You could do it all manually, but it’s much faster to pre-parse a dictionary such as <a href="./dictionary.txt">this one</a> (1.7MB, 170,000 words).  Interestingly, once the dictionary was processed, it became a mere 10KB <a href="letterFollows.json">rulebook</a>.</p>
+    <p>One of the first, and simplest methods is just to generate a list of what letters are allowed to be followed by what other letters.   You could do it all manually, but it’s much faster to pre-parse a dictionary such as <a href="/assets/articles/generatingLanguage/dictionary.txt">this one</a> (1.7MB, 170,000 words).  Interestingly, once the dictionary was processed, it became a mere 10KB <a href="/assets/articles/generatingLanguage/letterFollows.json">rulebook</a>.</p>
     <div class="centered widthLimit interactive">
       <div class="button" onclick="getRandomWordFromLetters('randomWordFromLetters')">Generate random words from letters</div>
       <div><ul id="randomWordFromLetters"><li>...</li></ul></div>
@@ -44,8 +27,3 @@
     </div>
     <p>As far as <span class="italic">entirely</span> random sentences go, how do you classify words in such a way as to be able to make sense?  Maybe a program needs to pre-parse a few books to determine what words come after what other words, or what groups of words commonly show up together, but even that is imitation, not invention.  It’s definitely a question I plan to revisit at some point.</p>
   <div class="endFloat">&nbsp;</div></div>
-  <footer>
-      <?php include '../../footer.php'; ?>
-  </footer>
-</body>
-</html>

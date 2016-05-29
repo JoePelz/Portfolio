@@ -1,21 +1,9 @@
-<DOCTYPE html>
-<html lang="en-CA">
-<head>
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="../../common.css">
-  <link rel="stylesheet" href="../../article.css">
-  <meta charset="utf-8">
-</head>
-<body>
-  <header>
-      <?php include '../../articleHeader.php'; ?>
-  </header>
   <div id="SectionContainer">
     <h1>Nuke Expressions</h1>
     <p>Searching for how to build nuke nodes has probably landed me on a watch list somewhere</p>
   </div>
   <div class="content">
-    <div class="center"><img src="./mergeExpression.png"></div>
+    <div class="center"><img src="/assets/articles/nukeExpressions/mergeExpression.png"></div>
     <p>Nuke expressions are so cool.  It took me a while to understand how to use them but they are really powerful in what they can do.  What they let you do is provide an equation for each pixel of the image. You have access to several built in variables, and the ability to define a few of your own.  There's a library of built in functions you have access too as well.  And it runs fast too!</p>
     <p>A (non-comprehensive) rundown of the tools in the expression node are:</p>
     <div class="widthLimit">
@@ -42,7 +30,7 @@
       <li></li>
       <li>rgba = clamp(1 - dist/radius, 0, 1)</li>
     </ol></div>
-    <div class="widthLimit center"><img src="./circle.jpg"></div>
+    <div class="widthLimit center"><img src="/assets/articles/nukeExpressions/circle.jpg"></div>
     <p>One expression I used recently was to ease into scaling an image to the left of a particular x coordinate. It went like this:</p>
     <div class="widthLimit"><ol class="code">
       <li>offset = 400</li>
@@ -52,16 +40,12 @@
       <li></li>
       <li>r = valid ? r(newX, y) : r</li>
       <li>g = valid ? g(newX, y) : g</li>
-      <li>...</li>
+      <li>b = valid ? b(newX, y) : b</li>
+      <li>a = valid ? a(newX, y) : a</li>
     </ol></div>
-    <div class="widthLimit center"><img src="./transform.jpg"></div>
+    <div class="widthLimit center"><img src="/assets/articles/nukeExpressions/transform.jpg"></div>
     <p>You can take it pretty far with expressions. I built a mandelbrot fractal and kaleidoscope nodes out of expressions.  The kaleidoscope was particularly fun to play with.</p>
-    <div class="widthLimit center"><img src="./kaleidobrot.jpg"></div>
+    <div class="widthLimit center"><img src="/assets/articles/nukeExpressions/kaleidobrot.jpg"></div>
     <p>In summary, nuke nodes are fun. They're worth learning to use and being played around with. They can do some really powerful things if you have the math mind to express what you're trying to do.</p>
-    <p>Download my collection of saved nuke gizmos <a href="gizmos.7z">here</a> for your fun and learning.  Nuke is available for <a href="http://www.thefoundry.co.uk/products/nuke/non-commercial/">free for non-commercial purposes</a> as of mid-2015. Yay!</p>
+    <p>Download my collection of saved nuke gizmos <a type="application/x-7z-compressed" href="/assets/articles/nukeExpressions/gizmos.7z" download>here</a> for your fun and learning.  Nuke is available for <a href="http://www.thefoundry.co.uk/products/nuke/non-commercial/">free for non-commercial purposes</a> as of mid-2015. Yay!</p>
   <div class="endFloat">&nbsp;</div></div>
-  <footer>
-      <?php include '../../footer.php'; ?>
-  </footer>
-</body>
-</html>

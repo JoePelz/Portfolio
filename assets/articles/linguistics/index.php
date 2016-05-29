@@ -1,23 +1,9 @@
-<DOCTYPE html>
-<html lang="en-CA">
-<head>
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="../../common.css">
-  <link rel="stylesheet" href="../../article.css">
-  <meta charset="utf-8">
-  <script src="extra.js"></script>
-</head>
-<body>
-  <header>
-      <?php include '../../articleHeader.php'; ?>
-  </header>
-
   <div id="SectionContainer">
     <h1>Programming Languages</h1>
     <p>Parlez-vous Deutsch amigo?</p>
   </div>
   <div class="content">
-    <div class="center"><img src="./link.jpg"></div>
+    <div class="center"><img src="/assets/articles/linguistics/link.jpg"></div>
     <p>During spring break of 2015 at BCIT, I went and redid one of my assignments a few times in a few different languages:  C++, Haskell, JavaScript, PowerShell, and Python.  C++ was the course I was studying and I had done a fair bit of python before.  JavaScript I’d touched a couple times, but Haskell and PowerShell were completely unfamiliar to me.</p>
     <p>The assignment I chose was a small lab assignment to calculate which set of 7 numbers had the most permutations that were prime numbers.</p>
     <p>Considering 3-digit numbers, as a simpler example, gives a maximum of 4 permutations.  There are 3 different solutions tied with 4 permutations.</p>
@@ -162,7 +148,7 @@
         <li>		else b </li>
       </ol></div>
       <p>Another cool thing about Haskell is that it comes with a fancy profiler.  I ran it on my program and it gave me this as the result:</p>
-      <div class="center"><img src="./haskell_prof.png"></div>
+      <div class="center"><img src="/assets/articles/linguistics/haskell_prof.png"></div>
       <p>All in all it was a really insightful exploration into another programming language.</p>
     </div>
     <h2 onclick="toggleCollapse('javascript');">JavaScript</h2>
@@ -352,8 +338,3 @@
       <p>Python 2.7.6 and 3.3.3 both took about 10 seconds to calculate the result.  I confess I'm a little upset that it's not running faster than the javascript edition.  I like python, and may have to fiddle with this to improve it.</p>
     </div>
   <div class="endFloat">&nbsp;</div></div>
-  <footer>
-      <?php include '../../footer.php'; ?>
-  </footer>
-</body>
-</html>

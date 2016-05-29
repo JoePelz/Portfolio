@@ -1,29 +1,3 @@
-<DOCTYPE html>
-<html lang="en-CA">
-<head>
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="../../common.css">
-  <link rel="stylesheet" href="../../article.css">
-  <meta charset="utf-8">
-  <script src="elm.js" charset="utf-8"></script>
-  <script>
-    function toggleCollapse(id) {
-      var e = document.getElementById(id);
-      if (e.classList.contains("collapsed")) {
-        e.classList.remove("collapsed");
-        e.onclick = null;
-      } else {
-        e.classList.add("collapsed");
-        e.onclick = function () { toggleCollapse(id); };
-      }
-    }
-  </script>
-</head>
-<body>
-  <header>
-      <?php include '../../articleHeader.php'; ?>
-  </header>
-
   <div id="SectionContainer">
     <h1>Hamming Code</h1>
     <p>Becau7se aXdding pu}rely *random chaQracters doesn'2t increasPe reBliabili!ty</p>
@@ -39,12 +13,7 @@
       <p>Decoding does the same process but tests each parity bit's value against its sum's evenness and expects them to match. If there is a mismatch, the bad bits and their parity bits are marked as error bits.  If a single non-parity bit is in error, it is flipped. Otherwise, if flipping a single bit will resolve the mismatches, that bit is flipped and then the parity bits are removed to complete the decoding.</p>
     </div>
   <div class="endFloat">&nbsp;</div></div>
-  <footer>
-      <?php include '../../footer.php'; ?>
-  </footer>
-</body>
-<script>
-var div = document.getElementById('puzzlebox');
-Elm.embed(Elm.HammingCode, div);
-</script>
-</html>
+  <script>
+  var div = document.getElementById('puzzlebox');
+  Elm.embed(Elm.HammingCode, div);
+  </script>
