@@ -5,6 +5,11 @@
   <section>
     <title>Programming</title>
     <article>
+      <title>Image Morpher</title>
+      <path>imageMorpher</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
       <title>Amoeba Platformer</title>
       <path>amoebaPlatformer</path>
       <image>link.jpg</image>
