@@ -129,6 +129,20 @@ ol li {
   list-style: decimal;
 }
 
+dl {
+  padding-left: 2em;
+  margin-bottom: 1.5em;
+}
+
+dl dt {
+  padding-top: 1em;
+  font-weight: bold;
+}
+
+dl dd {
+  margin-left: 2em;
+}
+
 ol.code {
   font-family: consolas, monospace;
   border: 0.15em dashed darkSlateBlue;

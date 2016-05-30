@@ -56,6 +56,11 @@
   <section>
     <title>School</title>
     <article>
+      <title>Audio Processing</title>
+      <path>audiomixer</path>
+      <image>link.png</image>
+    </article>
+    <article>
       <title>Hamming Code</title>
       <path>hammingCode</path>
       <image>link.jpg</image>

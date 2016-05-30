@@ -1,19 +1,20 @@
   <div id="SectionContainer">
-    <h1>AudioFile</h1>
+    <h1>Audio Processing</h1>
     <p>Can you hear me now?</p>
   </div>
   <div class="content">
-    <div class="center"><img src="/assets/articles/audiomixer/waveForm.jpg"></div>
-    <p>This was a term-long school assignment, running during fall of 2015.  It was an opportunity to explore a wide range of concepts, many of which were completely new to me.  By the end of this project I had my first experiences in:</p>
-    <ul>
+    <p>This was a term-long school assignment, during fall of 2015.  It was an opportunity to explore a wide range of concepts, many of which were completely new to me.</p>
+    <p>The complete program allowed a user to open, create, edit and save audio files.  Within the application you can view the waveform and frequencies, and select time ranges, and then cut, copy and paste samples.  With some samples selected you can amplify them, reverse them, and even change the pitch for some fun effects. You can change sampling rate and bit rate too.</p>
+    <div class="center"><img src="/assets/articles/audiomixer/waveform.png"></div>
+    <p>By the end of this project I had my first programming experience in:</p>
+    <div class="widthLimit"><ul>
       <li>Low-level Win32 multimedia functions WaveIn* and WaveOut*</li>
       <li>The C# Language</li>
       <li>Integrating Win32 dlls with C# code. That was a doozy to figure out!</li>
       <li>The Windows clipboard</li>
-    </ul>
-    <div class="center"><img src="/assets/articles/audiomixer/mixer.jpg"></div>
+    </ul></div>
     <p>These were just the programming tasks though. On a more fundamental level, I learned:</p>
-    <dl>
+    <div class="widthLimit"><dl>
       <dt>Discrete Fourier Transform</dt>
       <dd>Forwards and inverse. There was a fun question on the final exam for this course where if you had a black-box function that performed a forward Fourier transform, but no inverse transform, could you use it to convert frequency domain information back to time?  How?  I’ll just leave it unanswered here!</dd>
       <dt>Filtering Audio</dt>
@@ -26,6 +27,7 @@
           <li>Low-pass filter your samples to turn the stair-step waves created by step 1 back into smooth curves.</li>
           <li>Keep only every D sample in your samples and discard the rest.</li>
         </ol>The ratio (N/D) is the ratio of speed (and pitch) adjustment you’ve just applied. Cool eh?</dd>
-    </dl>
+    </dl></div>
+    <div class="center"><img src="/assets/articles/audiomixer/mixer.png"></div>
     <p>The complete project is hosted on <a href="https://github.com/JoePelz/DSPProject">on GitHub</a>, with a small description of how to use it.</p>
   <div class="endFloat">&nbsp;</div></div>
