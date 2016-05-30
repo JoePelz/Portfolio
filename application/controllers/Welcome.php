@@ -6,7 +6,7 @@ class Welcome extends MY_Controller {
 	function __construct()
 	{
 			parent::__construct();
-			$this->data['styles'][] = ["stylesheet" => "/assets/css/index.css"];
+			$this->data['styles'][] = array("stylesheet" => "/assets/css/index.css");
 	}
 
 	public function index()
