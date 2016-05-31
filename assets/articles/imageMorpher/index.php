@@ -15,7 +15,7 @@
     <div class="center"><img src="/assets/articles/imageMorpher/morpherSetup.png"></div>
     <p>The morphing itself uses a combination of parametric equations and the position of a pixel relative to each line segment, with a weighting based on line distance and falloff.  I wanted to empower the user to adjust the values and control how the morphing is done, so I included this rendering screen before viewing the result.</p>
     <p>Pixel-by-pixel computation can take up to ten minutes with one thread and full resolution; however, the code is optimized to use all available cores at 512x512 resolution and interpolate some of the morphing values to bring the morph-time down to something negligible.</p>
-    <div class="center"><img src="/assets/articles/imageMorpher/morphAnim.gif"></div>
+    <div class="center"><img src="/assets/articles/imageMorpher/morpherAnim.gif"></div>
     <p>Done! Now you have a sequence of images animating the morph from one image to the other.  There are a couple buttons at the bottom of the screen to frame left and right, but the main way you view the animation is just sliding your finger across the image left and right.  It’s so slick to use! It’s really smooth and satisfying, although you might not even notice it while you’re laughing at the morph you just made.</p>
     <p>The app is not published in the app store, but the Android Studio project is available freely <a href="https://github.com/JoePelz/ImageMorpher">on GitHub</a>.</p>
   <div class="endFloat">&nbsp;</div></div>
