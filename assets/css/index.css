@@ -32,6 +32,8 @@ section h3 {
 @media (min-width: 1101px) {
 	#LogoBlock {
 		height: 200px;
+		width: 100%;
+		position: relative;
 	}
 	header {
 	background-image: url("/assets/images/logo_wide_small.jpg");
