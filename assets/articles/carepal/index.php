@@ -15,5 +15,5 @@
     <p>Outside of the art, I build the fridge food-selecting mini-minigame, set up the camera movement, hooked up animation on the clock and Rocky, and made the bedroom interaction.  Plus testing and bug fixes of course.</p>
     <p>The next step for this project is to implement the reward system. The idea is that when Rocky completes a minigame he earns stars with which he can buy accessories for his room, such as other clothes in his wardrobe.   So rewards and customization come next.  Also more minigames, for example our client has breathing hardware that cystic fibrosis patients use for their breathing exercises, and we could plug that into the game, directly relating game rewards to the kids’ treatments.</p>
     <p>Another exciting and important possibility is letting kids visit other kids rooms online including whatever special customizations they have.  You see when the kids visit the hospital they stay for 2 weeks at a time but they can’t visit with other kids because of their weakened immune systems. Being able to visit in the game will make the condition less isolating and more engaging.</p>
-    <p>Carepal is available on <a href="https://github.com/IceBlockers/Carepal">GitHub</a>.</p>
+    <p>Carepal source code is available on <a href="https://github.com/IceBlockers/Carepal">GitHub</a>.</p>
   <div class="endFloat">&nbsp;</div></div>
