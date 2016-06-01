@@ -5,6 +5,11 @@
   <section>
     <title>Programming</title>
     <article>
+      <title>Reversi AI</title>
+      <path>reversi</path>
+      <image>link.png</image>
+    </article>
+    <article>
       <title>Image Morpher</title>
       <path>imageMorpher</path>
       <image>link.jpg</image>
@@ -107,10 +112,10 @@
     </article>
   </section>
   <section>
-    <title>Visual Effects</title>
+    <title>Artistry</title>
     <article>
-      <title>Demo Reel 2011</title>
-      <path>reel11</path>
+      <title>Carepal</title>
+      <path>carepal</path>
       <image>link.jpg</image>
     </article>
     <article>
@@ -121,6 +126,11 @@
     <article>
       <title>Nuke Expressions</title>
       <path>nukeExpressions</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
+      <title>Demo Reel 2011</title>
+      <path>reel11</path>
       <image>link.jpg</image>
     </article>
   </section>
