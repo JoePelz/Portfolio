@@ -1,6 +1,6 @@
   <div id="SectionContainer">
     <h1>Carepal</h1>
-    <p>For the kids at the BC Children's Hospital</p>
+    <p>For the kids who have to live with cystic fibrosis</p>
   </div>
   <div class="content">
     <p>Carepal is a game for 6-8 year olds who live with cystic fibrosis.  It is designed to be educational, entertaining and comforting.  Over the course of four weeks, our team worked with our client to understand what they were looking for, and built a prototype of the game that could run on Android tablets and that kids could test. We learned Unity from scratch, managed our scope, communicated it all with our client, and were very successful.</p>
