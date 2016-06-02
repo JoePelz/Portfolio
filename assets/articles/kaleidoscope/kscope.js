@@ -3,6 +3,9 @@ var canvas;
 var ctx;
 var canvas2;
 var ctx2;
+var canvasOffscreen
+var ctxOffscreen;
+var resultData;
 
 var bg;
 var x1, y1;
@@ -16,11 +19,18 @@ var radius = 10;
 var threshold = 400; //20 squared
 
 function init() {
-  canvas = document.getElementById("canvasOriginal");
+  canvas = document.getElementById("canvasOverlay");
   ctx = canvas.getContext("2d");
   canvas2 = document.getElementById("canvasResult");
   ctx2 = canvas2.getContext("2d");
   bg = document.getElementById("backgroundImage");
+
+  canvasOffscreen = document.createElement("canvas");
+  canvasOffscreen.width = 480;
+  canvasOffscreen.height = 320;
+  ctxOffscreen = canvasOffscreen.getContext("2d");
+  resultData = ctx2.getImageData(0,0,canvas2.width, canvas2.height);
+
 
   x1 = 120;
   y1 = 120;
@@ -88,6 +98,7 @@ function paintCanvas() {
   drawNode(x1, y1);
   drawNode(x2, y2);
   drawNode(x3, y3);
+  generateKaleidoscope();
 }
 
 function drawLinks() {
@@ -109,4 +120,38 @@ function drawNode(x, y) {
   ctx.lineWidth = 2;
   ctx.strokeStyle = "#000000";
   ctx.stroke();
+}
+
+function generateKaleidoscope() {
+  //get pixels from image
+  //Todo: move to init but ensure bg is loaded before running this.
+  ctxOffscreen.drawImage(bg, 0, 0);
+  var imageData = ctxOffscreen.getImageData(0,0,canvasOffscreen.width, canvasOffscreen.height);
+
+  var source = 0
+  var dest = 0;
+  for (var y = 0; y < 320; y += 1) {
+    for (var x = 0; x < 480; x += 1) {
+      dest = x * 4 + y * 4 * 480;
+
+      if ((x-x1) * (x-x1) + (y-y1) * (y-y1) < 1000
+        || (x-x2) * (x-x2) + (y-y2) * (y-y2) < 1000
+        || (x-x3) * (x-x3) + (y-y3) * (y-y3) < 1000) {
+        resultData.data[dest + 0] = imageData.data[dest];
+        resultData.data[dest + 1] = imageData.data[dest+1];
+        resultData.data[dest + 2] = imageData.data[dest+2];
+        resultData.data[dest + 3] = imageData.data[dest+3];
+      } else {
+        resultData.data[dest + 0] = 0
+        resultData.data[dest + 1] = 0
+        resultData.data[dest + 2] = 0
+        resultData.data[dest + 3] = 255
+      }
+    }
+  }
+
+
+
+  //set pixels to result
+  ctx2.putImageData(resultData, 0, 0);
 }
