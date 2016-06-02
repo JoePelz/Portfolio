@@ -76,13 +76,14 @@ function handleUpload(e) {
 
 function handleURL() {
   var URLLoader = document.getElementById('URLLoader');
-
+  alert("loading new URL");
   var xi=new XMLHttpRequest();
   xi.open("GET","/assets/articles/kaleidoscope/getImage.php?url="+encodeURI(URLLoader.value),true);
   xi.send();
 
   xi.onreadystatechange=function() {
     if(xi.readyState==4 && xi.status==200) {
+      alert("loading new URL");
       bg=new Image;
       bg.onload = imageLoaded;
       bg.src=xi.responseText;
