@@ -3,7 +3,7 @@
     <p>Mirrors, mirrors, on the walls. Where am I in these mirrored halls?</p>
   </div>
   <div class="content">
-    <p>p1</p>
+    <p>see <a href="http://jsfiddle.net/influenztial/qy7h5/">http://jsfiddle.net/influenztial/qy7h5/</a> for file uploader</p>
     <div class="centered"><img id="backgroundImage" src="/assets/articles/kaleidoscope/tester.bmp"></img></div>
     <p>p2</p>
     <div class="interactive widthlimit centered"><canvas id="canvasOverlay" width="480" height="320"></canvas></div>
