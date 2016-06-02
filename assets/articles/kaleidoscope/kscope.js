@@ -7,6 +7,9 @@ var canvasOffscreen
 var ctxOffscreen;
 var resultData;
 
+var width = 678;
+var height = 320;
+
 var bg;
 var x1, y1;
 var x2, y2;
@@ -25,8 +28,8 @@ function init() {
   ctx2 = canvas2.getContext("2d");
 
   canvasOffscreen = document.createElement("canvas");
-  canvasOffscreen.width = 480;
-  canvasOffscreen.height = 320;
+  canvasOffscreen.width = width;
+  canvasOffscreen.height = height;
   ctxOffscreen = canvasOffscreen.getContext("2d");
   resultData = ctx2.getImageData(0,0,canvas2.width, canvas2.height);
 
@@ -44,14 +47,17 @@ function init() {
 
   bg = new Image();
   bg.onload = imageLoaded;
-  bg.src = '/assets/articles/kaleidoscope/tester.bmp';
+  bg.src = '/assets/articles/kaleidoscope/barbie.jpg';
 }
 
 function imageLoaded() {
   bg.style.display = 'none';
-  canvas.addEventListener('mousemove', mousemove);
   canvas.addEventListener('mousedown', mousedown);
+  canvas.addEventListener('mousemove', mousemove);
   canvas.addEventListener('mouseup', mouseup);
+  canvas.addEventListener('touchstart', touchdown);
+  canvas.addEventListener('touchmove', touchmove);
+  canvas.addEventListener('touchend', mouseup);
   paintCanvas();
   generateKaleidoscope();
 };
@@ -70,16 +76,70 @@ function handleUpload(e) {
 
 function handleURL() {
   var URLLoader = document.getElementById('URLLoader');
-  bg = new Image();
-  bg.onload = imageLoaded;
-  bg.src = URLLoader.value;
+
+  var xi=new XMLHttpRequest();
+  xi.open("GET","/assets/articles/kaleidoscope/getImage.php?url="+encodeURI(URLLoader.value),true);
+  xi.send();
+
+  xi.onreadystatechange=function() {
+    if(xi.readyState==4 && xi.status==200) {
+      bg=new Image;
+      bg.onload = imageLoaded;
+      bg.src=xi.responseText;
+    }
+  }
+
   var imageLoader = document.getElementById('imageLoader');
   imageLoader.value = "";
 }
 
+function touchdown(event) {
+  var rect = canvas.getBoundingClientRect();
+  xm = event.touches[0].clientX - rect.left;
+  ym = event.touches[0].clientY - rect.top;
+
+  if (((x1 - xm) * (x1 - xm) + (y1 - ym) * (y1 - ym)) < threshold) {
+    mdown = true;
+    selected = 1;
+    offsetX = x1 - xm;
+    offsetY = y1 - ym;
+  } else if (((x2 - xm) * (x2 - xm) + (y2 - ym) * (y2 - ym)) < threshold) {
+    mdown = true;
+    selected = 2;
+    offsetX = x2 - xm;
+    offsetY = y2 - ym;
+  } else if (((x3 - xm) * (x3 - xm) + (y3 - ym) * (y3 - ym)) < threshold) {
+    mdown = true;
+    selected = 3;
+    offsetX = x3 - xm;
+    offsetY = y3 - ym;
+  }
+}
+
+function touchmove(event) {
+  if (mdown == true) {
+    var rect = canvas.getBoundingClientRect();
+    xm = event.touches[0].clientX - rect.left;
+    ym = event.touches[0].clientY - rect.top;
+    if (selected == 1) {
+      x1 = xm + offsetX;
+      y1 = ym + offsetY;
+    } else if (selected == 2) {
+      x2 = xm + offsetX;
+      y2 = ym + offsetY;
+    } else if (selected == 3) {
+      x3 = xm + offsetX;
+      y3 = ym + offsetY;
+    }
+    paintCanvas();
+  }
+}
+
 function mousedown(event) {
-  xm = event.layerX;
-  ym = event.layerY;
+  var rect = canvas.getBoundingClientRect();
+  xm = event.clientX - rect.left;
+  ym = event.clientY - rect.top;
+
 
   if (((x1 - xm) * (x1 - xm) + (y1 - ym) * (y1 - ym)) < threshold) {
     mdown = true;
@@ -102,14 +162,13 @@ function mousedown(event) {
 function mouseup(event) {
   mdown = false;
   selected = 0;
-
-  generateKaleidoscope();
 }
 
 function mousemove(event) {
   if (mdown == true) {
-    xm = event.layerX;
-    ym = event.layerY;
+    var rect = canvas.getBoundingClientRect();
+    xm = event.clientX - rect.left;
+    ym = event.clientY - rect.top;
     if (selected == 1) {
       x1 = xm + offsetX;
       y1 = ym + offsetY;
@@ -130,6 +189,7 @@ function paintCanvas() {
   drawNode(x1, y1);
   drawNode(x2, y2);
   drawNode(x3, y3);
+  generateKaleidoscope();
 }
 
 function drawLinks() {
@@ -175,9 +235,9 @@ function generateKaleidoscope() {
   var dest = 0;
   var d, cond, any;
   var sx, sy;
-  for (var y = 0; y < 320; y += 1) {
-    for (var x = 0; x < 480; x += 1) {
-      dest = x * 4 + y * 4 * 480;
+  for (var y = 0; y < height; y += 1) {
+    for (var x = 0; x < width; x += 1) {
+      dest = x * 4 + y * 4 * width;
       sx = x;
       sy = y;
       any = true;
@@ -208,8 +268,8 @@ function generateKaleidoscope() {
       }
 
 
-      source = Math.floor(sx) * 4 + Math.floor(sy) * 4 * 480;
-      if (sx < 0 || sy < 0 || sx >= 480 || sy >= 320) {
+      source = Math.floor(sx) * 4 + Math.floor(sy) * 4 * width;
+      if (sx < 0 || sy < 0 || sx >= width || sy >= height) {
         resultData.data[dest] = 0;
         resultData.data[dest+1] = 0;
         resultData.data[dest+2] = 0;
