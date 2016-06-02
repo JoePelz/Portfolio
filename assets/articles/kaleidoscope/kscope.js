@@ -94,6 +94,7 @@ function handleURL() {
 }
 
 function touchdown(event) {
+  event.preventDefault()
   var rect = canvas.getBoundingClientRect();
   xm = event.touches[0].clientX - rect.left;
   ym = event.touches[0].clientY - rect.top;
@@ -117,6 +118,7 @@ function touchdown(event) {
 }
 
 function touchmove(event) {
+  event.preventDefault();
   if (mdown == true) {
     var rect = canvas.getBoundingClientRect();
     xm = event.touches[0].clientX - rect.left;
@@ -162,6 +164,7 @@ function mousedown(event) {
 function mouseup(event) {
   mdown = false;
   selected = 0;
+  generateKaleidoscope();
 }
 
 function mousemove(event) {
@@ -180,6 +183,7 @@ function mousemove(event) {
       y3 = ym + offsetY;
     }
     paintCanvas();
+    generateKaleidoscope();
   }
 }
 
@@ -189,7 +193,6 @@ function paintCanvas() {
   drawNode(x1, y1);
   drawNode(x2, y2);
   drawNode(x3, y3);
-  generateKaleidoscope();
 }
 
 function drawLinks() {
