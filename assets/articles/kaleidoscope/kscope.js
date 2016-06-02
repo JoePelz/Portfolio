@@ -23,7 +23,6 @@ function init() {
   ctx = canvas.getContext("2d");
   canvas2 = document.getElementById("canvasResult");
   ctx2 = canvas2.getContext("2d");
-  bg = document.getElementById("backgroundImage");
 
   canvasOffscreen = document.createElement("canvas");
   canvasOffscreen.width = 480;
@@ -31,6 +30,8 @@ function init() {
   ctxOffscreen = canvasOffscreen.getContext("2d");
   resultData = ctx2.getImageData(0,0,canvas2.width, canvas2.height);
 
+  var imageLoader = document.getElementById('imageLoader');
+  imageLoader.addEventListener('change', handleUpload, false);
 
   x1 = 120;
   y1 = 120;
@@ -41,10 +42,39 @@ function init() {
   mdown = false;
   selected = 0;
 
+  bg = new Image();
+  bg.onload = imageLoaded;
+  bg.src = '/assets/articles/kaleidoscope/tester.bmp';
+}
+
+function imageLoaded() {
+  bg.style.display = 'none';
   canvas.addEventListener('mousemove', mousemove);
   canvas.addEventListener('mousedown', mousedown);
   canvas.addEventListener('mouseup', mouseup);
   paintCanvas();
+  generateKaleidoscope();
+};
+
+function handleUpload(e) {
+  var reader = new FileReader();
+  reader.onload = function(event){
+    bg = new Image();
+    bg.onload = imageLoaded;
+    bg.src = event.target.result;
+  };
+  reader.readAsDataURL(e.target.files[0]);
+  var URLLoader = document.getElementById('URLLoader');
+  URLLoader.value = "";
+}
+
+function handleURL() {
+  var URLLoader = document.getElementById('URLLoader');
+  bg = new Image();
+  bg.onload = imageLoaded;
+  bg.src = URLLoader.value;
+  var imageLoader = document.getElementById('imageLoader');
+  imageLoader.value = "";
 }
 
 function mousedown(event) {
@@ -128,7 +158,7 @@ function generateKaleidoscope() {
   //Todo: move to init but ensure bg is loaded before running this.
   ctxOffscreen.drawImage(bg, 0, 0);
 
-  //generate constants...
+  //image-wide constants
   var slopeAC = (y3-y1) / (x3-x1)
   var slopeCB = (y2-y3) / (x2-x3)
   var slopeBA = (y2-y1) / (x2-x1)
@@ -138,21 +168,9 @@ function generateKaleidoscope() {
   var condAC = y2 < slopeAC * x2 + offsetAC
   var condCB = y1 < slopeCB * x1 + offsetCB
   var condBA = y3 < slopeBA * x3 + offsetBA
-
   var imageData = ctxOffscreen.getImageData(0,0,canvasOffscreen.width, canvasOffscreen.height);
 
-/*
-  console.log(slopeAC);
-  console.log(slopeCB);
-  console.log(slopeBA);
-  console.log(offsetAC);
-  console.log(offsetCB);
-  console.log(offsetBA);
-  console.log(condAC);
-  console.log(condCB);
-  console.log(condBA);
-*/
-
+  //reflecting loop
   var source = 0
   var dest = 0;
   var d, cond, any;
@@ -167,7 +185,7 @@ function generateKaleidoscope() {
 
       while (any && maxIter-- > 0) {
         any = false;
-        //reflect over 1->2
+        //reflect over 1->3
         d = (sx + (sy - offsetAC) * slopeAC) / (1 + slopeAC * slopeAC);
         cond = condAC ? sy > slopeAC * sx + offsetAC : sy < slopeAC * sx + offsetAC;
         sx = cond ? 2 * d - sx : sx;
@@ -181,7 +199,7 @@ function generateKaleidoscope() {
         sy = cond ? 2 * d * slopeCB - sy + 2 * offsetCB : sy;
         if (cond) { any = true; }
 
-        //reflect over 3->1
+        //reflect over 2->1
         d = (sx + (sy - offsetBA) * slopeBA) / (1 + slopeBA * slopeBA);
         cond = condBA ? sy > slopeBA * sx + offsetBA : sy < slopeBA * sx + offsetBA;
         sx = cond ? 2 * d - sx : sx;
