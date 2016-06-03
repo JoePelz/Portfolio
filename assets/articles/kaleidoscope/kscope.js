@@ -221,6 +221,13 @@ function drawNode(x, y) {
   ctx.stroke();
 }
 
+function downloadImage() {
+  var link = document.getElementById("downloadLink");
+  var image = canvas2.toDataURL("image/jpeg", 0.9);
+  link.href=image;
+  return true;
+}
+
 function generateKaleidoscope() {
   //get pixels from image
   //Todo: move to init but ensure bg is loaded before running this.
