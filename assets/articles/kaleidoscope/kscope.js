@@ -1,4 +1,3 @@
-//globals?
 var canvas;
 var ctx;
 var canvas2;
@@ -6,25 +5,32 @@ var ctx2;
 var canvasOffscreen
 var ctxOffscreen;
 var resultData;
+var imageData;
+var bg; //Image object
 
 var srcWidth = 512;
 var srcHeight = 320;
 var destWidth = 512;
 var destHeight = 512;
 
-var bg;
 var x1, y1;
 var x2, y2;
 var x3, y3;
 var xm, ym;
-var mdown;
+var mdown;  //button is down for dragging
 var selected;
 var offsetX, offsetY;
-var radius = 10;
-var threshold = 400; //20 squared
+var radius = 10; //radius of vertices for drawing
+var threshold = 400; //radius^2 of vertices for selection
 
 function init() {
   canvas = document.getElementById("canvasOverlay");
+  canvas.addEventListener('mousedown', mousedown);
+  canvas.addEventListener('mousemove', mousemove);
+  canvas.addEventListener('mouseup', mouseup);
+  canvas.addEventListener('touchstart', touchdown);
+  canvas.addEventListener('touchmove', touchmove);
+  canvas.addEventListener('touchend', mouseup);
   ctx = canvas.getContext("2d");
   canvas2 = document.getElementById("canvasResult");
   ctx2 = canvas2.getContext("2d");
@@ -52,17 +58,32 @@ function init() {
   bg.src = '/assets/articles/kaleidoscope/barbie.jpg';
 }
 
+
+//=============================
+//Image file handling functions
+//=============================
 function imageLoaded() {
   bg.style.display = 'none';
-  canvas.addEventListener('mousedown', mousedown);
-  canvas.addEventListener('mousemove', mousemove);
-  canvas.addEventListener('mouseup', mouseup);
-  canvas.addEventListener('touchstart', touchdown);
-  canvas.addEventListener('touchmove', touchmove);
-  canvas.addEventListener('touchend', mouseup);
+  makeImageFit();
   paintCanvas();
   generateKaleidoscope();
 };
+
+function makeImageFit() {
+  var w = bg.naturalWidth;
+  var h = bg.naturalHeight;
+  var scaleForW = srcWidth / w;
+  var scaleForH = srcHeight / h;
+
+  if (scaleForW > scaleForH) {
+    ctxOffscreen.drawImage(bg, 0, 0, Math.floor(w * scaleForW), Math.floor(h * scaleForW));
+  } else {
+      ctxOffscreen.drawImage(bg, 0, 0, Math.floor(w * scaleForH), Math.floor(h * scaleForH));
+  }
+
+
+  imageData = ctxOffscreen.getImageData(0,0,canvasOffscreen.width, canvasOffscreen.height);
+}
 
 function handleUpload(e) {
   var reader = new FileReader();
@@ -78,14 +99,12 @@ function handleUpload(e) {
 
 function handleURL() {
   var URLLoader = document.getElementById('URLLoader');
-  alert("loading new URL");
   var xi=new XMLHttpRequest();
   xi.open("GET","/assets/articles/kaleidoscope/getImage.php?url="+encodeURI(URLLoader.value),true);
   xi.send();
 
   xi.onreadystatechange=function() {
     if(xi.readyState==4 && xi.status==200) {
-      alert("loading new URL");
       bg=new Image;
       bg.onload = imageLoaded;
       bg.src=xi.responseText;
@@ -95,6 +114,18 @@ function handleURL() {
   var imageLoader = document.getElementById('imageLoader');
   imageLoader.value = "";
 }
+
+function downloadImage() {
+  var link = document.getElementById("downloadLink");
+  var image = canvas2.toDataURL("image/jpeg", 0.9);
+  link.href=image;
+  return true;
+}
+
+
+//=====================================
+//Mouse and touch interaction functions
+//=====================================
 
 function touchdown(event) {
   var rect = canvas.getBoundingClientRect();
@@ -192,8 +223,14 @@ function mousemove(event) {
   }
 }
 
+
+//==================
+//Painting functions
+//==================
+
 function paintCanvas() {
-  ctx.drawImage(bg, 0, 0);
+  //ctx.drawImage(bg, 0, 0);
+  ctx.putImageData(imageData, 0, 0);
   drawLinks();
   drawNode(x1, y1);
   drawNode(x2, y2);
@@ -221,18 +258,12 @@ function drawNode(x, y) {
   ctx.stroke();
 }
 
-function downloadImage() {
-  var link = document.getElementById("downloadLink");
-  var image = canvas2.toDataURL("image/jpeg", 0.9);
-  link.href=image;
-  return true;
-}
+
+//==========================
+//Main kaleidoscope function
+//==========================
 
 function generateKaleidoscope() {
-  //get pixels from image
-  //Todo: move to init but ensure bg is loaded before running this.
-  ctxOffscreen.drawImage(bg, 0, 0);
-
   //image-wide constants
   var slopeAC = (y3-y1) / (x3-x1)
   var slopeCB = (y2-y3) / (x2-x3)
@@ -243,7 +274,6 @@ function generateKaleidoscope() {
   var condAC = y2 < slopeAC * x2 + offsetAC
   var condCB = y1 < slopeCB * x1 + offsetCB
   var condBA = y3 < slopeBA * x3 + offsetBA
-  var imageData = ctxOffscreen.getImageData(0,0,canvasOffscreen.width, canvasOffscreen.height);
 
   //reflecting loop
   var source = 0

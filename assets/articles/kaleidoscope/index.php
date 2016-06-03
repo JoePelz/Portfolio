@@ -13,7 +13,8 @@
     </div>
     <p>You can get some especially interesting shapes if you make a really thin triangle.</p3>
     <p>The code works by taking the canvas and folding the outside-the-triangle part along each of the triangle edges (in order, repeatedly) until the entire canvas is inside the triangle. Then it prints the triangle image and displays the unfolded image. </p>
-    <p>See the source by inspecting this page, or checking it out on <a href="...">GitHub</a></p>
+    <p>If you find the kaleidoscope becomes sluggish or non-responsive, just reload the page.  If you know why that is happening, drop me a line!
+    <p>See the live source code <a href="/assets/articles/kaleidoscope/kscope.js">here</a>, especially the generateKaleidoscope() function.</p>
   </div>
   <div class="endFloat">&nbsp;</div></div>
   <script>
