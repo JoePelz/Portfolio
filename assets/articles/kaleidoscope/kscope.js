@@ -7,8 +7,10 @@ var canvasOffscreen
 var ctxOffscreen;
 var resultData;
 
-var width = 678;
-var height = 320;
+var srcWidth = 512;
+var srcHeight = 320;
+var destWidth = 512;
+var destHeight = 512;
 
 var bg;
 var x1, y1;
@@ -28,8 +30,8 @@ function init() {
   ctx2 = canvas2.getContext("2d");
 
   canvasOffscreen = document.createElement("canvas");
-  canvasOffscreen.width = width;
-  canvasOffscreen.height = height;
+  canvasOffscreen.width = srcWidth;
+  canvasOffscreen.height = srcHeight;
   ctxOffscreen = canvasOffscreen.getContext("2d");
   resultData = ctx2.getImageData(0,0,canvas2.width, canvas2.height);
 
@@ -95,22 +97,24 @@ function handleURL() {
 }
 
 function touchdown(event) {
-  event.preventDefault()
   var rect = canvas.getBoundingClientRect();
   xm = event.touches[0].clientX - rect.left;
   ym = event.touches[0].clientY - rect.top;
 
   if (((x1 - xm) * (x1 - xm) + (y1 - ym) * (y1 - ym)) < threshold) {
+    event.preventDefault();
     mdown = true;
     selected = 1;
     offsetX = x1 - xm;
     offsetY = y1 - ym;
   } else if (((x2 - xm) * (x2 - xm) + (y2 - ym) * (y2 - ym)) < threshold) {
+    event.preventDefault();
     mdown = true;
     selected = 2;
     offsetX = x2 - xm;
     offsetY = y2 - ym;
   } else if (((x3 - xm) * (x3 - xm) + (y3 - ym) * (y3 - ym)) < threshold) {
+    event.preventDefault();
     mdown = true;
     selected = 3;
     offsetX = x3 - xm;
@@ -119,8 +123,8 @@ function touchdown(event) {
 }
 
 function touchmove(event) {
-  event.preventDefault();
   if (mdown == true) {
+    event.preventDefault();
     var rect = canvas.getBoundingClientRect();
     xm = event.touches[0].clientX - rect.left;
     ym = event.touches[0].clientY - rect.top;
@@ -239,9 +243,9 @@ function generateKaleidoscope() {
   var dest = 0;
   var d, cond, any;
   var sx, sy;
-  for (var y = 0; y < height; y += 1) {
-    for (var x = 0; x < width; x += 1) {
-      dest = x * 4 + y * 4 * width;
+  for (var y = 0; y < destHeight; y += 1) {
+    for (var x = 0; x < destWidth; x += 1) {
+      dest = x * 4 + y * 4 * destWidth;
       sx = x;
       sy = y;
       any = true;
@@ -272,8 +276,8 @@ function generateKaleidoscope() {
       }
 
 
-      source = Math.floor(sx) * 4 + Math.floor(sy) * 4 * width;
-      if (sx < 0 || sy < 0 || sx >= width || sy >= height) {
+      source = Math.floor(sx) * 4 + Math.floor(sy) * 4 * srcWidth;
+      if (sx < 0 || sy < 0 || sx >= srcWidth || sy >= srcHeight) {
         resultData.data[dest] = 0;
         resultData.data[dest+1] = 0;
         resultData.data[dest+2] = 0;
