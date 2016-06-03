@@ -133,6 +133,13 @@
       <path>reel11</path>
       <image>link.jpg</image>
     </article>
+    <article>
+      <title>Kaleidoscope</title>
+      <path>kaleidoscope</path>
+      <image>link.jpg</image>
+      <style>/assets/articles/kaleidoscope/kscope.css</style>
+      <script>/assets/articles/kaleidoscope/kscope.js</script>
+    </article>
   </section>
   <section>
     <title>Inspiration</title>
