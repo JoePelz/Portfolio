@@ -265,18 +265,18 @@ function drawNode(x, y) {
 
 function generateKaleidoscope() {
   //image-wide constants
-  var slopeAC = (y3-y1) / (x3-x1)
-  var slopeCB = (y2-y3) / (x2-x3)
-  var slopeBA = (y2-y1) / (x2-x1)
-  var offsetAC = y1 - slopeAC*x1
-  var offsetCB = y3 - slopeCB*x3
-  var offsetBA = y1 - slopeBA*x1
-  var condAC = y2 < slopeAC * x2 + offsetAC
-  var condCB = y1 < slopeCB * x1 + offsetCB
-  var condBA = y3 < slopeBA * x3 + offsetBA
+  var slopeAC = (x3-x1) != 0 ? (y3-y1) / (x3-x1) : (y3 > y1 ? 1000 : -1000);
+  var slopeCB = (x2-x3) != 0 ? (y2-y3) / (x2-x3) : (y2 > y3 ? 1000 : -1000);
+  var slopeBA = (x2-x1) != 0 ? (y2-y1) / (x2-x1) : (y2 > y1 ? 1000 : -1000);
+  var offsetAC = y1 - slopeAC*x1;
+  var offsetCB = y3 - slopeCB*x3;
+  var offsetBA = y1 - slopeBA*x1;
+  var condAC = y2 < slopeAC * x2 + offsetAC;
+  var condCB = y1 < slopeCB * x1 + offsetCB;
+  var condBA = y3 < slopeBA * x3 + offsetBA;
 
   //reflecting loop
-  var source = 0
+  var source = 0;
   var dest = 0;
   var d, cond, any;
   var sx, sy;
