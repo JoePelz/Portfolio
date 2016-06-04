@@ -5,6 +5,11 @@
   <section>
     <title>Programming</title>
     <article>
+      <title>Rix Compiler</title>
+      <path>rix</path>
+      <image>link.jpg</image>
+    </article>
+    <article>
       <title>Reversi AI</title>
       <path>reversi</path>
       <image>link.png</image>
