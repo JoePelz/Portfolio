@@ -143,6 +143,14 @@ dl dd {
   margin-left: 2em;
 }
 
+span.code {
+  display: inline-block;
+  font-family: consolas, monospace;
+  border: 0.15em solid #C1BCE1;
+  padding: 0em 0.2em;
+  background: #EEEEEE;
+}
+
 ol.code {
   font-family: consolas, monospace;
   border: 0.15em dashed darkSlateBlue;

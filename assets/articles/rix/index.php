@@ -14,7 +14,7 @@
       <li>    print i</li>
     </ol></div>
     <p>might be broken up into the following tokens:</p>
-    <div class="center"><table><tr>
+    <!--<div class="center"><table><tr>
       <td>n</td>
       <td>=</td>
       <td>5</td>
@@ -33,7 +33,8 @@
       <td>EOL</td>
       <td>unindent</td>
       <td>EOF</td>
-    </tr></table></div>
+    </tr></table></div>-->
+    <div class="center blocks"><div>n</div><div>=</div><div>5</divdiv>EOL</div><div>i</div><div>for</div><div>1</div><div>,</div><div>n</div><div>+</div><div>1</div><div>EOL</div><div>indent</div><div>print</div><div>i</div><div>EOL</div><div>unindent</div><div>EOF</div></div>
     <p>The lexer has some vague idea what these tokens are, when viewed in isolation; It recognizes that = is the equality operator, and “print” is the name of some function or variable. However, the lexer has no idea which tokens relate to which others. It just converts the string of characters into a string of tokens for the next process: parsing.</p>
     <h2>Parsing</h2>
     <p>Parsing takes the tokens from the lexer and connects them into combinations that start to have some meaning. It tries to match sequences of tokens against a set of patterns it recognizes.  For example, in English you often form sentences out of a sequence of tokens like subject, verb, object, period. It’s not the only way to build a sentence but it’s one of the patterns the parser would match.</p>

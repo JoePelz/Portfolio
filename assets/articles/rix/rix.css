@@ -1,4 +1,4 @@
-table {
+div.blocks, table {
   margin: 1em auto;
 }
 tr.descriptive td {
@@ -25,4 +25,15 @@ td {
 }
 acronym {
   cursor:help;
+}
+
+div.blocks div {
+  display: inline-block;
+  border: 0.15em solid #C1BCE1;
+  margin-left: -0.15em;
+  margin-top: 0.1em;
+  padding: 0.5em 0.75em;
+  min-width: 1.5em;
+  text-align: center;
+  font-family: consolas, monospace;
 }
