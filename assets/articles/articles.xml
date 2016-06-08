@@ -8,6 +8,7 @@
       <title>Rix Compiler</title>
       <path>rix</path>
       <image>link.jpg</image>
+      <style>/assets/articles/rix/rix.css</style>
     </article>
     <article>
       <title>Reversi AI</title>
